@@ -1,0 +1,95 @@
+<html>
+<head>
+    <style type="text/css">
+        html {
+            font-family: system-ui;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            color: white;
+            padding: 10px 20px;
+            background: black;
+            border-radius: 6px;
+        }
+        form {
+            margin: 40px 40px;
+            padding: 40px 40px;
+            background: #D6D7D7; 
+            border-radius: 6px;
+        }
+
+        #div2 {
+            display: flex;
+        }
+
+        div {
+            flex-wrap: wrap;
+            font-size: 20px;
+            align: left;
+            font-weight: bold;
+        }
+
+        .large-text-field {
+            font-size: 20px;
+            border: 2px solid #C8C7C7;
+            border-radius: 5px;
+            margin: 10px 85px 10px 0px;
+            padding: 20px 10px; 
+            width: 350px; 
+        }
+
+        .button {
+            border: 2px solid #09AAEA;
+            border-radius: 5px;
+            background-color: #09AAEA;
+            width: 150px;
+            margin: 20px 0px;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            cursor: pointer;
+            background: white;
+            color: #09AAEA;
+        }
+    </style>
+</head>
+<body>
+<h1>Create Task</h1>
+<%= form_with model: @task, url: "/tasks", method: :post do |form| %>
+    <div id="div1">
+        <div id="div2">
+            <div>
+                <%= form.label :Name %><br>
+                <%= form.text_field :name, required: :true, class: 'large-text-field' %>
+            </div>
+        </div>
+        <div id="div2">
+            <div>
+                <%= form.label :Description %><br>
+                <%= form.text_field :description, required: :true, class: 'large-text-field' %>
+            </div>
+        </div>
+        <div id="div2">
+            <div>
+                <%= form.label :Status %><br>
+                <%= form.select :status, options_for_select(@status), required: :true, class: 'large-text-field' %>
+            </div>
+        </div>
+        <div id="div2">
+            <div>
+                <%= form.label :DeadLine %><br>
+                 <%= form.datetime_local_field :deadline, required: :true, class: 'large-text-field' %>
+            </div>
+        </div>
+    </div>
+    <div>
+        <%= form.submit "Create", class: 'button'%>
+    </div>
+<% end %>
+</body>
+</html>

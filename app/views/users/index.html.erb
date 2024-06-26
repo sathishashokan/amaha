@@ -1,0 +1,62 @@
+<html>
+<head>
+    <style type="text/css">
+    html {
+            font-family: system-ui;
+        }
+    h1 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 10px 20px;
+        background: black;
+        border-radius: 6px;
+    }
+    span {
+        font-weight: normal;
+    }
+    table {
+        border: 1px solid #C8C7C7;
+        border-radius: 6px;
+        border-spacing: 0px;
+        empty-cells: hide;
+    }
+    td, th {
+        border: 1px solid rgb(190,190,190);
+        padding: 10px;
+        width: 120px;
+    }
+    th {
+        border: 0.01mm solid #C8C7C7;
+        background-color: #ECECEC
+    }
+    .div_button {
+        display: center;
+        flex-wrap: wrap;
+    }
+    .button {
+        margin: 20px 10px 20px 0px;
+        border: 2px solid #09AAEA;
+        border-radius: 6px;
+        background-color: #09AAEA;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+    .button:hover {
+        background: white;
+        color: #09AAEA;
+    }
+    </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <h1>Welcome</h1>
+
+    <div class='div_button'>
+        <%= link_to 'Login', session_new_path, class: 'button' %>
+        <%= link_to 'sign Up', new_path, method: :post, class: 'button', data: { method: :post }%>
+    </div>
+</body>
+</html>
